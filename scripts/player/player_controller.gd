@@ -6,13 +6,13 @@ const SPEED := 200.0
 const JUMP_VELOCITY := -300.0
 
 # AnimatedSprite2D referansı
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 
 
 func _ready() -> void:
 	# Başlangıç ayarları
 	print("Player is ready.")
-	animated_sprite.play("Idle")
+	player_sprite.play("Idle")
 
 func _physics_process(delta: float) -> void:
 	# Giriş kontrolleri ile hareket et
@@ -27,11 +27,11 @@ func _physics_process(delta: float) -> void:
 
 	# Hareket durumuna göre animasyon kontrolü
 	if not is_on_floor():
-		animated_sprite.play("Jump")
+		player_sprite.play("Jump")
 	elif velocity.x != 0:
-		animated_sprite.play("Run")
+		player_sprite.play("Run")
 	else:
-		animated_sprite.play("Idle")
+		player_sprite.play("Idle")
 
 # Oyuncu girdi işlemlerini kontrol eden fonksiyon
 func handle_input() -> void:
@@ -55,6 +55,6 @@ func handle_input() -> void:
 
 	# Oyuncunun sağa mı yoksa sola mı baktığını kontrol et
 	if direction > 0:
-		animated_sprite.flip_h = false
+		player_sprite.flip_h = false
 	elif direction < 0:
-		animated_sprite.flip_h = true
+		player_sprite.flip_h = true

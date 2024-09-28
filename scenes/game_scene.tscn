@@ -57,7 +57,7 @@ layer_1/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 196607, 65536, 0
 [node name="Player" parent="." instance=ExtResource("1_26lfm")]
 position = Vector2(0, 10)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 limit_right = 9999999
@@ -70,7 +70,7 @@ position = Vector2(0, -17)
 
 [node name="MovePlatform" parent="." instance=ExtResource("4_5i0fo")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovePlatform"]
+[node name="MovePlatformAnimation" type="AnimationPlayer" parent="MovePlatform"]
 libraries = {
 "": SubResource("AnimationLibrary_u7emi")
 }

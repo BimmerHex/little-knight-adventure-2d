@@ -8,11 +8,11 @@ size = Vector2(32, 8)
 [node name="MovePlatform" type="AnimatableBody2D"]
 position = Vector2(321, 21)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="MovePlatformSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_du586")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MovePlatformCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lhhti")
 one_way_collision = true
