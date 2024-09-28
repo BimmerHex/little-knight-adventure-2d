@@ -1,12 +1,30 @@
-[gd_scene load_steps=12 format=3 uid="uid://mg4d7s73byr8"]
+[gd_scene load_steps=15 format=3 uid="uid://mg4d7s73byr8"]
 
 [ext_resource type="PackedScene" uid="uid://bdyd3ffsahnvc" path="res://scenes/characters/player.tscn" id="1_26lfm"]
 [ext_resource type="TileSet" uid="uid://c424be84bpsag" path="res://assets/environment/tilesets/world_tileset.tres" id="1_d1whk"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_xncnc"]
 [ext_resource type="PackedScene" uid="uid://buyo17pxt8702" path="res://assets/environment/props/platform.tscn" id="3_bmfa0"]
 [ext_resource type="PackedScene" uid="uid://cscr5hi0d6b0j" path="res://assets/environment/props/move_platform.tscn" id="4_5i0fo"]
 [ext_resource type="PackedScene" uid="uid://m8qya6c7fqi2" path="res://assets/items/coin.tscn" id="5_85att"]
 [ext_resource type="PackedScene" uid="uid://boicyvlsibrbp" path="res://scenes/killzone.tscn" id="6_harpo"]
 [ext_resource type="PackedScene" uid="uid://ek5x15iogo1i" path="res://scenes/characters/enemy.tscn" id="7_fsci7"]
+[ext_resource type="FontFile" uid="uid://bv8tvon6qlaii" path="res://assets/fonts/PixelOperator8.ttf" id="8_ww4r1"]
+[ext_resource type="FontFile" uid="uid://dy0bef70jnwr8" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_dwumf"]
+
+[sub_resource type="Animation" id="Animation_5eghn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, 21)]
+}
 
 [sub_resource type="Animation" id="Animation_7vhos"]
 resource_name = "move"
@@ -25,21 +43,6 @@ tracks/0/keys = {
 "values": [Vector2(321, 21), Vector2(383, 21)]
 }
 
-[sub_resource type="Animation" id="Animation_5eghn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(321, 21)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7emi"]
 _data = {
 "RESET": SubResource("Animation_5eghn"),
@@ -49,6 +52,23 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t0jtr"]
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_xncnc")
+
+[node name="CoinLabel" type="Label" parent="GameManager"]
+offset_left = 443.0
+offset_top = -190.0
+offset_right = 545.0
+offset_bottom = -171.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("10_dwumf")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="WorldTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_d1whk")
@@ -114,3 +134,54 @@ shape = SubResource("WorldBoundaryShape2D_t0jtr")
 
 [node name="Enemy" parent="." instance=ExtResource("7_fsci7")]
 position = Vector2(448, 48)
+
+[node name="InfoLabels" type="Node" parent="."]
+
+[node name="InfoLabel" type="Label" parent="InfoLabels"]
+offset_left = -135.0
+offset_top = 20.0
+offset_right = -49.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_ww4r1")
+theme_override_font_sizes/font_size = 8
+text = "Space to Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel2" type="Label" parent="InfoLabels"]
+offset_left = 306.0
+offset_top = -17.0
+offset_right = 402.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_ww4r1")
+theme_override_font_sizes/font_size = 8
+text = "Falling hurts...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel3" type="Label" parent="InfoLabels"]
+offset_left = 633.0
+offset_top = -84.0
+offset_right = 729.0
+offset_bottom = -76.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_ww4r1")
+theme_override_font_sizes/font_size = 8
+text = "Almost there..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel4" type="Label" parent="InfoLabels"]
+offset_left = 446.0
+offset_top = -205.0
+offset_right = 542.0
+offset_bottom = -197.0
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("8_ww4r1")
+theme_override_font_sizes/font_size = 8
+text = "Great Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
