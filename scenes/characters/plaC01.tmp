@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdyd3ffsahnvc"]
+
+[ext_resource type="SpriteFrames" uid="uid://d1n31qjjkn6ox" path="res://assets/characters/player/animations/player_animations.tres" id="1_kw3u0"]
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_x3qpr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qktw"]
+radius = 5.09902
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_x3qpr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = ExtResource("1_kw3u0")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_0qktw")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
