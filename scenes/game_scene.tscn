@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mg4d7s73byr8"]
+[gd_scene load_steps=12 format=3 uid="uid://mg4d7s73byr8"]
 
 [ext_resource type="PackedScene" uid="uid://bdyd3ffsahnvc" path="res://scenes/characters/player.tscn" id="1_26lfm"]
 [ext_resource type="TileSet" uid="uid://c424be84bpsag" path="res://assets/environment/tilesets/world_tileset.tres" id="1_d1whk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cscr5hi0d6b0j" path="res://assets/environment/props/move_platform.tscn" id="4_5i0fo"]
 [ext_resource type="PackedScene" uid="uid://m8qya6c7fqi2" path="res://assets/items/coin.tscn" id="5_85att"]
 [ext_resource type="PackedScene" uid="uid://boicyvlsibrbp" path="res://scenes/killzone.tscn" id="6_harpo"]
+[ext_resource type="PackedScene" uid="uid://ek5x15iogo1i" path="res://scenes/characters/enemy.tscn" id="7_fsci7"]
 
 [sub_resource type="Animation" id="Animation_7vhos"]
 resource_name = "move"
@@ -96,8 +97,20 @@ position = Vector2(72, -72)
 [node name="Coin5" parent="Coins" instance=ExtResource("5_85att")]
 position = Vector2(424, 8)
 
+[node name="Coin6" parent="Coins" instance=ExtResource("5_85att")]
+position = Vector2(664, -56)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("5_85att")]
+position = Vector2(760, -56)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("5_85att")]
+position = Vector2(472, -136)
+
 [node name="Killzone" parent="." instance=ExtResource("6_harpo")]
 
 [node name="KillzoneCollision" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 116)
 shape = SubResource("WorldBoundaryShape2D_t0jtr")
+
+[node name="Enemy" parent="." instance=ExtResource("7_fsci7")]
+position = Vector2(448, 48)

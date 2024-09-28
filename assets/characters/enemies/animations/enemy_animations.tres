@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c87xj42ipjib1"]
+
+[ext_resource type="Texture2D" uid="uid://bavgan1ovtlcb" path="res://assets/characters/enemies/sprites/slime_green.png" id="1_n51m4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frocq"]
+atlas = ExtResource("1_n51m4")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vh4a"]
+atlas = ExtResource("1_n51m4")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x2ky"]
+atlas = ExtResource("1_n51m4")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o1ic"]
+atlas = ExtResource("1_n51m4")
+region = Rect2(72, 24, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frocq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vh4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x2ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o1ic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
